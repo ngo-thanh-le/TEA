@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent"
+        >
+
+    <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Hello Everyone, this is a tricky session"
+            />
+
+    <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Give me another activity"
+            android:id="@+id/button_start_activity"
+            android:layout_gravity="center|left"
+            android:width="300dp"/>
+
+    <EditText
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="This content suppose to change with content from another activity"
+            android:id="@+id/editText_content_from_activity"
+            android:layout_gravity="center"/>
+
+    <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Give me another activity fragment"
+            android:id="@+id/button_start_activity_fragment"
+            android:layout_gravity="center|left"
+            android:width="300dp"/>
+
+    <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="This one get content from fragment within another activity"
+            android:id="@+id/editText1"
+            android:layout_gravity="center"/>
+
+    <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Give me another fragment"
+            android:id="@+id/button_start_fragment"
+            android:layout_gravity="center|left"
+            android:width="300dp"/>
+
+    <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Content from that fragment"
+            android:id="@+id/editText2"
+            android:layout_gravity="center"/>
+
+    <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Give me a dialog fragment"
+            android:id="@+id/button_start_dialog"
+            android:layout_gravity="center|left"
+            android:singleLine="false"
+            android:width="300dp"/>
+
+    <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Content from dialog fragment"
+            android:id="@+id/editText3"
+            android:layout_gravity="center"/>
+</LinearLayout>
+

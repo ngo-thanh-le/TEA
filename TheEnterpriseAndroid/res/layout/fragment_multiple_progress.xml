@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <TableLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_gravity="center">
+
+        <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:id="@+id/row_1">
+
+            <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Run"
+                    android:id="@+id/button_run_one"
+                    android:layout_column="0"
+                    android:minWidth="80dp"/>
+
+            <ProgressBar
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/progressBar_run_one"
+                    android:layout_column="1"
+                    style="@android:style/Widget.ProgressBar.Horizontal"
+                    android:layout_weight="1"/>
+        </TableRow>
+
+        <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:id="@+id/row_2">
+
+            <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Run"
+                    android:id="@+id/button_run_two"
+                    android:layout_column="0"
+                    android:minWidth="80dp"/>
+
+            <ProgressBar
+                    style="@android:style/Widget.ProgressBar.Horizontal"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/progressBar_run_two"
+                    android:layout_column="1"
+                    android:layout_weight="1"/>
+        </TableRow>
+
+        <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:id="@+id/row_3">
+
+            <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Run"
+                    android:id="@+id/button_run_three"
+                    android:layout_column="0"
+                    android:minWidth="80dp"/>
+
+            <ProgressBar
+                    style="@android:style/Widget.ProgressBar.Horizontal"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/progressBar_run_three"
+                    android:layout_column="1"
+                    android:layout_weight="1"/>
+        </TableRow>
+
+        <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:id="@+id/row_4">
+
+            <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Run"
+                    android:id="@+id/button_run_forth"
+                    android:layout_column="0"
+                    android:minWidth="80dp"/>
+
+            <ProgressBar
+                    style="@android:style/Widget.ProgressBar.Horizontal"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/progressBar_run_forth"
+                    android:layout_column="1"
+                    android:layout_weight="1"/>
+        </TableRow>
+
+        <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:id="@+id/row_5">
+
+            <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Run"
+                    android:id="@+id/button_run_five"
+                    android:layout_column="0"
+                    android:minWidth="80dp"/>
+
+            <ProgressBar
+                    style="@android:style/Widget.ProgressBar.Horizontal"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/progressBar_run_five"
+                    android:layout_column="1"
+                    android:layout_weight="1"/>
+        </TableRow>
+
+        <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:id="@+id/row_6">
+
+            <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Run"
+                    android:id="@+id/button_run_six"
+                    android:layout_column="0"
+                    android:minWidth="80dp"/>
+
+            <ProgressBar
+                    style="@android:style/Widget.ProgressBar.Horizontal"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/progressBar_run_six"
+                    android:layout_column="1"
+                    android:layout_weight="1"/>
+        </TableRow>
+
+        <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:id="@+id/row_7">
+
+            <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Run"
+                    android:id="@+id/button_run_seven"
+                    android:layout_column="0"
+                    android:minWidth="80dp"/>
+
+            <ProgressBar
+                    style="@android:style/Widget.ProgressBar.Horizontal"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/progressBar_run_seven"
+                    android:layout_column="1"
+                    android:layout_weight="1"/>
+        </TableRow>
+
+        <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:id="@+id/row_8">
+
+            <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Run"
+                    android:id="@+id/button_run_eight"
+                    android:layout_column="0"
+                    android:minWidth="80dp"/>
+
+            <ProgressBar
+                    style="@android:style/Widget.ProgressBar.Horizontal"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/progressBar_run_eight"
+                    android:layout_column="1"
+                    android:layout_weight="1"/>
+        </TableRow>
+    </TableLayout>
+</LinearLayout>

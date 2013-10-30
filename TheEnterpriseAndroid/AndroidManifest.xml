@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.qsoft.eip"
+          android:versionCode="1"
+          android:versionName="1.0">
+
+    <uses-sdk android:minSdkVersion="17"/>
+    <application
+            android:label="@string/app_name"
+            android:icon="@drawable/ic_launcher">
+        <!--Section 01-->
+        <activity
+                android:name=".activity.section01.SimpleActivity01"
+                android:label="Section 01 - SimpleActivity01">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+
+        <activity
+                android:name=".activity.section01.SimpleActivity02"
+                android:label="Section 01 - SimpleActivity02">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+
+        <activity
+                android:name=".activity.section01.ActivityContainFragment01"
+                android:label="Section 01 - Contain Fragment 01">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+
+        <activity
+                android:name=".activity.section01.ActivityContainFragment02"
+                android:label="Section 01 - Contain Fragment 02">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+
+        <!--Section 02-->
+        <activity
+                android:name=".activity.section02.SingleCommandActivity"
+                android:label="Section 02 - Single Command Activity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+
+        <activity
+                android:name=".activity.section02.MultiCommandsActivity"
+                android:label="Section 02 - Multi Commands Activity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+
+        <activity
+                android:name=".activity.section02.ReusableCommandsActivity"
+                android:label="Section 02 - Reusable Commands Activity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+
+        <!--Section 03-->
+        <!--Fragment Retain Generic-->
+        <activity
+                android:name=".activity.section03.MultipleProgressActivity01"
+                android:label="Section 03 - Multiple Progresses Activity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+
+        <activity
+                android:name=".activity.section03.MultipleProgressActivity02"
+                android:label="Section 03 - Multiple Progresses Activity (Sync + Async Command)">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+
+        <!--Section 04-->
+        <activity
+                android:name=".activity.section04.SimpleStateMaintainActivity"
+                android:label="Section 04 - Simple State Maintain Activity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+
+        <!--Fragment Retain-->
+        <activity android:name=".activity.section04.FragmentRetainInstance">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+
+        <activity
+                android:name=".activity.simple.MainActivity"
+                android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".activity.simple.SecondActivity"/>
+
+        <activity android:name=".activity.section05.DaoActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+
+        <!--Content Provider Test-->
+        <activity android:name=".activity.contentprovider.UserDictionaryActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+
+        <!--AsyncTask-->
+        <activity android:name=".activity.section04.AsyncTaskProgressActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+
+
+        <!--Sync Framework-->
+        <provider
+                android:name=".sync.StubProvider"
+                android:authorities="com.qsoft.eip.sync.provider"
+                android:exported="false"
+                android:syncable="true"/>
+    </application>
+
+    <!--For User Dictionary Content Provider-->
+    <uses-permission android:name="android.permission.READ_USER_DICTIONARY"/>
+    <uses-permission android:name="android.permission.WRITE_USER_DICTIONARY"/>
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_SYNC_SETTINGS"/>
+    <uses-permission android:name="android.permission.WRITE_SYNC_SETTINGS"/>
+    <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS"/>
+
+    <service
+            android:name="com.qsoft.eip.sync.WebsiteSyncService"
+            android:exported="true"
+            android:process=":sync">
+        <intent-filter>com.qsoft.eip.sync.provider
+            <action android:name="com.qsoft.eip.sync.WebsiteSyncAdapter"/>
+        </intent-filter>
+        <meta-data
+                android:name="com.qsoft.eip.sync.WebsiteSyncAdapter"
+                android:resource="@xml/sync_adapter"/>
+    </service>
+</manifest>

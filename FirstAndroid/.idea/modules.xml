@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../../bindroid/Bindroid/Bindroid.iml" filepath="$PROJECT_DIR$/../../bindroid/Bindroid/Bindroid.iml" />
+      <module fileurl="file://$PROJECT_DIR$/FirstAndroid.iml" filepath="$PROJECT_DIR$/FirstAndroid.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../TheEnterpriseAndroid/TheEnterpriseAndroid.iml" filepath="$PROJECT_DIR$/../TheEnterpriseAndroid/TheEnterpriseAndroid.iml" />
+    </modules>
+  </component>
+</project>
+

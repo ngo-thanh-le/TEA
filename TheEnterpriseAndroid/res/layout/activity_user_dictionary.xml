@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center">
+
+        <Button
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:text="Add Word"
+                android:id="@+id/button_add_entry"/>
+
+        <EditText
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:text="New EditText"
+                android:id="@+id/editText_new_word"/>
+
+    </LinearLayout>
+
+    <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Query All Entries"
+            android:id="@+id/button_query_user_dictionary"
+            android:layout_gravity="left|center_vertical"/>
+
+    <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:text="New Text"
+            android:id="@+id/textview_user_dictionary_entries"
+            android:layout_gravity="center"/>
+
+</LinearLayout>
