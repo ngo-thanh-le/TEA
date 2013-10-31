@@ -79,10 +79,7 @@ public class StateUtils
 
     public static void loadState(Object target, Bundle savedInstanceState)
     {
-        if (savedInstanceState == null)
-        {
-            return;
-        }
+
         for (Field member : ClassUtils.getAllFields(target.getClass()))
         {
             if (!member.isAccessible())
@@ -97,6 +94,10 @@ public class StateUtils
                     switch (saveActivityState.value())
                     {
                         case WITHIN_ACTIVITY:
+                            if (savedInstanceState == null)
+                            {
+                                return;
+                            }
                             loadFromBundle(target, savedInstanceState, member);
                             break;
                         case APPLICATION:

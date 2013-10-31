@@ -10,7 +10,7 @@
             android:icon="@drawable/ic_launcher">
         <!--Section 01-->
         <activity
-                android:name=".activity.section01.SimpleActivity01"
+                android:name=".tutorials.section01.SimpleActivity01"
                 android:label="Section 01 - SimpleActivity01">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -19,7 +19,7 @@
         </activity>
 
         <activity
-                android:name=".activity.section01.SimpleActivity02"
+                android:name=".tutorials.section01.SimpleActivity02"
                 android:label="Section 01 - SimpleActivity02">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -28,7 +28,7 @@
         </activity>
 
         <activity
-                android:name=".activity.section01.ActivityContainFragment01"
+                android:name=".tutorials.section01.ActivityContainFragment01"
                 android:label="Section 01 - Contain Fragment 01">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -37,7 +37,7 @@
         </activity>
 
         <activity
-                android:name=".activity.section01.ActivityContainFragment02"
+                android:name=".tutorials.section01.ActivityContainFragment02"
                 android:label="Section 01 - Contain Fragment 02">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -47,7 +47,7 @@
 
         <!--Section 02-->
         <activity
-                android:name=".activity.section02.SingleCommandActivity"
+                android:name=".tutorials.section02.SingleCommandActivity"
                 android:label="Section 02 - Single Command Activity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -56,7 +56,7 @@
         </activity>
 
         <activity
-                android:name=".activity.section02.MultiCommandsActivity"
+                android:name=".tutorials.section02.MultiCommandsActivity"
                 android:label="Section 02 - Multi Commands Activity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -65,7 +65,7 @@
         </activity>
 
         <activity
-                android:name=".activity.section02.ReusableCommandsActivity"
+                android:name=".tutorials.section02.ReusableCommandsActivity"
                 android:label="Section 02 - Reusable Commands Activity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -76,7 +76,7 @@
         <!--Section 03-->
         <!--Fragment Retain Generic-->
         <activity
-                android:name=".activity.section03.MultipleProgressActivity01"
+                android:name=".tutorials.section03.MultipleProgressActivity01"
                 android:label="Section 03 - Multiple Progresses Activity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -85,7 +85,7 @@
         </activity>
 
         <activity
-                android:name=".activity.section03.MultipleProgressActivity02"
+                android:name=".tutorials.section03.MultipleProgressActivity02"
                 android:label="Section 03 - Multiple Progresses Activity (Sync + Async Command)">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -95,7 +95,7 @@
 
         <!--Section 04-->
         <activity
-                android:name=".activity.section04.SimpleStateMaintainActivity"
+                android:name=".tutorials.section04.SimpleStateMaintainActivity"
                 android:label="Section 04 - Simple State Maintain Activity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -104,53 +104,64 @@
         </activity>
 
         <!--Fragment Retain-->
-        <activity android:name=".activity.section04.FragmentRetainInstance">
+        <activity android:name=".tutorials.section04.FragmentRetainInstance">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
 
-        <activity
-                android:name=".activity.simple.MainActivity"
-                android:label="@string/app_name">
+        <activity android:name=".tutorials.section04.OriginalActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".activity.simple.SecondActivity"/>
+        <activity android:name=".tutorials.section04.BeingDestroyActivity"/>
+        <activity android:name=".tutorials.section04.RetainedWithinActivity"/>
+        <activity android:name=".tutorials.section04.RetainedInApplicationActivity"/>
 
-        <activity android:name=".activity.section05.DaoActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
-        </activity>
+        <!--<activity-->
+                <!--android:name=".tutorials.simple.MainActivity"-->
+                <!--android:label="@string/app_name">-->
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.MAIN"/>-->
+                <!--<category android:name="android.intent.category.LAUNCHER"/>-->
+            <!--</intent-filter>-->
+        <!--</activity>-->
+        <!--<activity android:name=".tutorials.simple.SecondActivity"/>-->
 
-        <!--Content Provider Test-->
-        <activity android:name=".activity.contentprovider.UserDictionaryActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
-        </activity>
+        <!--<activity android:name=".tutorials.section05.DaoActivity">-->
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.MAIN"/>-->
+                <!--<category android:name="android.intent.category.LAUNCHER"/>-->
+            <!--</intent-filter>-->
+        <!--</activity>-->
 
-        <!--AsyncTask-->
-        <activity android:name=".activity.section04.AsyncTaskProgressActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
-        </activity>
+        <!--&lt;!&ndash;Content Provider Test&ndash;&gt;-->
+        <!--<activity android:name=".tutorials.section06.UserDictionaryActivity">-->
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.MAIN"/>-->
+                <!--<category android:name="android.intent.category.LAUNCHER"/>-->
+            <!--</intent-filter>-->
+        <!--</activity>-->
+
+        <!--&lt;!&ndash;AsyncTask&ndash;&gt;-->
+        <!--<activity android:name=".tutorials.section04.AsyncTaskProgressActivity">-->
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.MAIN"/>-->
+                <!--<category android:name="android.intent.category.LAUNCHER"/>-->
+            <!--</intent-filter>-->
+        <!--</activity>-->
+        <!---->
 
 
-        <!--Sync Framework-->
-        <provider
-                android:name=".sync.StubProvider"
-                android:authorities="com.qsoft.eip.sync.provider"
-                android:exported="false"
-                android:syncable="true"/>
+        <!--&lt;!&ndash;Sync Framework&ndash;&gt;-->
+        <!--<provider-->
+                <!--android:name=".temporary.sync.StubProvider"-->
+                <!--android:authorities="com.qsoft.eip.temporary.sync.provider"-->
+                <!--android:exported="false"-->
+                <!--android:syncable="true"/>-->
     </application>
 
     <!--For User Dictionary Content Provider-->
@@ -163,14 +174,14 @@
     <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS"/>
 
     <service
-            android:name="com.qsoft.eip.sync.WebsiteSyncService"
+            android:name="com.qsoft.eip.temporary.sync.WebsiteSyncService"
             android:exported="true"
             android:process=":sync">
-        <intent-filter>com.qsoft.eip.sync.provider
-            <action android:name="com.qsoft.eip.sync.WebsiteSyncAdapter"/>
+        <intent-filter>com.qsoft.eip.temporary.sync.provider
+            <action android:name="com.qsoft.eip.temporary.sync.WebsiteSyncAdapter"/>
         </intent-filter>
         <meta-data
-                android:name="com.qsoft.eip.sync.WebsiteSyncAdapter"
+                android:name="com.qsoft.eip.temporary.sync.WebsiteSyncAdapter"
                 android:resource="@xml/sync_adapter"/>
     </service>
 </manifest>

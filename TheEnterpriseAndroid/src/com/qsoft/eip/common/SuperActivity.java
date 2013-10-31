@@ -164,4 +164,11 @@ public class SuperActivity extends Activity implements IModelContainer
     public <GUI> GUI getGUIComponent(int id, Class<GUI> type) {
        return (GUI) mappedUIComponents.get(id);
     }
+
+    @Override
+    protected void onDestroy()
+    {
+        StateUtils.onSaveInstanceState(this, null);
+        super.onDestroy();
+    }
 }

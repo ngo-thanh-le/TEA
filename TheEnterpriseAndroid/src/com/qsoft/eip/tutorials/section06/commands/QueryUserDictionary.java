@@ -10,8 +10,6 @@ import com.qsoft.eip.common.SuperActivity;
 import com.qsoft.eip.common.IActivityCommand;
 import com.qsoft.eip.common.IModelContainer;
 
-import java.sql.SQLException;
-
 /**
  * User: Le
  * Date: 10/28/13
@@ -19,7 +17,7 @@ import java.sql.SQLException;
 public class QueryUserDictionary implements IActivityCommand
 {
     @Override
-    public void execute(SuperActivity activity, IModelContainer modelable, String... parameters) throws SQLException
+    public void execute(SuperActivity activity, IModelContainer modelable, String... parameters)
     {
         ContentResolver resolver = activity.getContentResolver();
 

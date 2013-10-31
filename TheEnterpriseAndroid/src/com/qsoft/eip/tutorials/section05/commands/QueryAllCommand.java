@@ -18,7 +18,7 @@ import java.sql.SQLException;
 public class QueryAllCommand implements IActivityCommand
 {
     @Override
-    public void execute(SuperActivity activity, IModelContainer modelable, String... parameters) throws SQLException
+    public void execute(SuperActivity activity, IModelContainer modelable, String... parameters) throws Exception
     {
         OrmLiteSupportSuperActivity ormLiteSupportSuperActivity;
         if (activity instanceof OrmLiteSupportSuperActivity)

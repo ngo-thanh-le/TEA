@@ -2,8 +2,8 @@ package com.qsoft.eip.common.utils;
 
 import android.view.View;
 import android.widget.Toast;
-import com.qsoft.eip.activity.SuperActivity;
-import com.qsoft.eip.activity.SuperFragment;
+import com.qsoft.eip.common.SuperActivity;
+import com.qsoft.eip.common.SuperFragment;
 import com.qsoft.eip.common.IActivityCommand;
 import com.qsoft.eip.common.IFragmentCommand;
 import com.qsoft.eip.common.IModelContainer;
@@ -163,17 +163,14 @@ public class CommandUtils
                 @Override
                 public void onClick(View v)
                 {
-                    try
-                    {
-                        commandInstance.execute(activity, activity instanceof IModelContainer ? activity : null, command.parameters());
+                    try {
+                    commandInstance.execute(activity, activity instanceof IModelContainer ? activity : null, command.parameters());
                     }
-                    catch (SQLException e)
+                    catch (Exception e)
                     {
                         Toast.makeText(activity, "An error happened. Check log for more details.", Toast.LENGTH_SHORT).show();
                         LogUtils.debugLog(commandInstance, e.getMessage());
                     }
-
-                    // AsyncTask test
                 }
             });
         }
@@ -194,7 +191,7 @@ public class CommandUtils
                     {
                         commandInstance.execute(fragment, fragment instanceof IModelContainer ? fragment : null, command.parameters());
                     }
-                    catch (SQLException e)
+                    catch (Exception e)
                     {
                         Toast.makeText(fragment.getActivity(), "An error happened. Check log for more details.", Toast.LENGTH_SHORT).show();
                         LogUtils.debugLog(commandInstance, e.getMessage());

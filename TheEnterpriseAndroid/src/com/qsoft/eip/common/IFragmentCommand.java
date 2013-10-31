@@ -1,7 +1,5 @@
 package com.qsoft.eip.common;
 
-import com.qsoft.eip.activity.SuperFragment;
-
 import java.sql.SQLException;
 
 /**
@@ -10,5 +8,5 @@ import java.sql.SQLException;
  */
 public interface IFragmentCommand extends ICommand
 {
-    void execute(SuperFragment activity, IModelContainer modelable, String... parameters) throws SQLException;
+    void execute(SuperFragment activity, IModelContainer modelable, String... parameters) throws Exception;
 }

@@ -11,8 +11,7 @@ import com.bindroid.BindingMode;
 import com.bindroid.ui.EditTextTextProperty;
 import com.bindroid.ui.UiBinder;
 import com.j256.ormlite.android.apptools.OpenHelperManager;
-import com.qsoft.eip.activity.section03.RetainedFragment;
-import com.qsoft.eip.common.IModelContainer;
+import com.qsoft.eip.tutorials.section03.RetainedFragment;
 import com.qsoft.eip.common.annotation.ModelBinding;
 import com.qsoft.eip.common.annotation.SaveActivityState;
 import com.qsoft.eip.common.annotation.TransferScope;
@@ -21,7 +20,7 @@ import com.qsoft.eip.common.utils.ClassUtils;
 import com.qsoft.eip.common.utils.CommandUtils;
 import com.qsoft.eip.common.utils.GUIUtils;
 import com.qsoft.eip.common.utils.LogUtils;
-import com.qsoft.eip.dao.helper.GenericDatabaseHelper;
+import com.qsoft.eip.common.dao.helper.GenericDatabaseHelper;
 
 import java.io.Serializable;
 import java.lang.reflect.Field;

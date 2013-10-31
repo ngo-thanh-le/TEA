@@ -1,7 +1,5 @@
 package com.qsoft.eip.common;
 
-import com.qsoft.eip.activity.SuperActivity;
-
 import java.sql.SQLException;
 
 /**
@@ -10,5 +8,5 @@ import java.sql.SQLException;
  */
 public interface IActivityCommand extends ICommand
 {
-    void execute(SuperActivity activity, IModelContainer modelable, String... parameters) throws SQLException;
+    void execute(SuperActivity activity, IModelContainer modelable, String... parameters) throws Exception;
 }
