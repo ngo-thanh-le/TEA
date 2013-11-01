@@ -25,4 +25,26 @@
             android:text="Go to being retained within application"
             android:id="@+id/button_go_being_retained_in_application"
             android:layout_gravity="left|center_vertical"/>
+
+    <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Go to AsyncTask retained Activity"
+            android:id="@+id/button_go_to_asynctask"
+            android:layout_gravity="left|center_vertical"/>
+
+    <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Go to Fragment Retained Activity"
+            android:id="@+id/button_go_to_fragmentretained"
+            android:layout_gravity="left|center_vertical"
+            android:singleLine="false"/>
+
+    <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Go to Threaded Activity"
+            android:id="@+id/button_go_to_threaded_activity"
+            android:layout_gravity="left|center_vertical"/>
 </LinearLayout>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+        <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Click this to start a thread"
+                android:id="@+id/button_start_a_thread"
+                android:layout_gravity="left|center_vertical"/>
+
+        <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="... store on a static map"
+                android:id="@+id/button_start_a_thread_static"
+                android:layout_gravity="left|center_vertical"/>
+
+        <Button
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:text="... store on singleton map"
+                android:id="@+id/button_start_a_thread_singleton"
+                />
+    </LinearLayout>
+
+    <ProgressBar
+            style="@android:style/Widget.ProgressBar.Horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/progressBar_start_a_thread"
+            android:layout_gravity="left|center_vertical"/>
+
+</LinearLayout>

@@ -104,7 +104,7 @@
         </activity>
 
         <!--Fragment Retain-->
-        <activity android:name=".tutorials.section04.FragmentRetainInstance">
+        <activity android:name=".tutorials.section04.FragmentRetainInstanceActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
@@ -120,48 +120,52 @@
         <activity android:name=".tutorials.section04.BeingDestroyActivity"/>
         <activity android:name=".tutorials.section04.RetainedWithinActivity"/>
         <activity android:name=".tutorials.section04.RetainedInApplicationActivity"/>
+        <activity android:name=".tutorials.section04.AsyncTaskProgressActivity"/>
+        <activity
+                android:name=".tutorials.section04.ThreadedActivity"
+                android:label="Running on Thread"/>
 
         <!--<activity-->
-                <!--android:name=".tutorials.simple.MainActivity"-->
-                <!--android:label="@string/app_name">-->
-            <!--<intent-filter>-->
-                <!--<action android:name="android.intent.action.MAIN"/>-->
-                <!--<category android:name="android.intent.category.LAUNCHER"/>-->
-            <!--</intent-filter>-->
+        <!--android:name=".tutorials.simple.MainActivity"-->
+        <!--android:label="@string/app_name">-->
+        <!--<intent-filter>-->
+        <!--<action android:name="android.intent.action.MAIN"/>-->
+        <!--<category android:name="android.intent.category.LAUNCHER"/>-->
+        <!--</intent-filter>-->
         <!--</activity>-->
         <!--<activity android:name=".tutorials.simple.SecondActivity"/>-->
 
         <!--<activity android:name=".tutorials.section05.DaoActivity">-->
-            <!--<intent-filter>-->
-                <!--<action android:name="android.intent.action.MAIN"/>-->
-                <!--<category android:name="android.intent.category.LAUNCHER"/>-->
-            <!--</intent-filter>-->
+        <!--<intent-filter>-->
+        <!--<action android:name="android.intent.action.MAIN"/>-->
+        <!--<category android:name="android.intent.category.LAUNCHER"/>-->
+        <!--</intent-filter>-->
         <!--</activity>-->
 
         <!--&lt;!&ndash;Content Provider Test&ndash;&gt;-->
         <!--<activity android:name=".tutorials.section06.UserDictionaryActivity">-->
-            <!--<intent-filter>-->
-                <!--<action android:name="android.intent.action.MAIN"/>-->
-                <!--<category android:name="android.intent.category.LAUNCHER"/>-->
-            <!--</intent-filter>-->
+        <!--<intent-filter>-->
+        <!--<action android:name="android.intent.action.MAIN"/>-->
+        <!--<category android:name="android.intent.category.LAUNCHER"/>-->
+        <!--</intent-filter>-->
         <!--</activity>-->
 
         <!--&lt;!&ndash;AsyncTask&ndash;&gt;-->
         <!--<activity android:name=".tutorials.section04.AsyncTaskProgressActivity">-->
-            <!--<intent-filter>-->
-                <!--<action android:name="android.intent.action.MAIN"/>-->
-                <!--<category android:name="android.intent.category.LAUNCHER"/>-->
-            <!--</intent-filter>-->
+        <!--<intent-filter>-->
+        <!--<action android:name="android.intent.action.MAIN"/>-->
+        <!--<category android:name="android.intent.category.LAUNCHER"/>-->
+        <!--</intent-filter>-->
         <!--</activity>-->
         <!---->
 
 
         <!--&lt;!&ndash;Sync Framework&ndash;&gt;-->
         <!--<provider-->
-                <!--android:name=".temporary.sync.StubProvider"-->
-                <!--android:authorities="com.qsoft.eip.temporary.sync.provider"-->
-                <!--android:exported="false"-->
-                <!--android:syncable="true"/>-->
+        <!--android:name=".temporary.sync.StubProvider"-->
+        <!--android:authorities="com.qsoft.eip.temporary.sync.provider"-->
+        <!--android:exported="false"-->
+        <!--android:syncable="true"/>-->
     </application>
 
     <!--For User Dictionary Content Provider-->

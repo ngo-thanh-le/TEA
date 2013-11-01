@@ -52,7 +52,7 @@ public class AsyncTaskProgressActivity extends SuperActivity
         {
             case DIALOG_DOWNLOAD_PROGRESS:
                 mProgressDialog = new ProgressDialog(this);
-                mProgressDialog.setMessage("waiting 5 minutes..");
+                mProgressDialog.setMessage("waiting 20 seconds..");
                 mProgressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
                 mProgressDialog.setCancelable(false);
                 mProgressDialog.show();

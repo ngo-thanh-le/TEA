@@ -15,14 +15,16 @@ import com.qsoft.eip.R;
  * User: Le
  * Date: 10/28/13
  */
-public class FragmentRetainInstance extends Activity
+public class FragmentRetainInstanceActivity extends Activity
 {
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
 
         // First time init, create the UI.
-        if (savedInstanceState == null) {
+        if (savedInstanceState == null)
+        {
             getFragmentManager().beginTransaction().add(android.R.id.content,
                     new UiFragment()).commit();
         }
@@ -38,13 +40,16 @@ public class FragmentRetainInstance extends Activity
 
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                                 Bundle savedInstanceState) {
+                                 Bundle savedInstanceState)
+        {
             View v = inflater.inflate(R.layout.fragment_retain_instance, container, false);
 
             // Watch for button clicks.
-            Button button = (Button)v.findViewById(R.id.restart);
-            button.setOnClickListener(new View.OnClickListener() {
-                public void onClick(View v) {
+            Button button = (Button) v.findViewById(R.id.restart);
+            button.setOnClickListener(new View.OnClickListener()
+            {
+                public void onClick(View v)
+                {
                     mWorkFragment.restart();
                 }
             });
@@ -53,16 +58,18 @@ public class FragmentRetainInstance extends Activity
         }
 
         @Override
-        public void onActivityCreated(Bundle savedInstanceState) {
+        public void onActivityCreated(Bundle savedInstanceState)
+        {
             super.onActivityCreated(savedInstanceState);
 
             FragmentManager fm = getFragmentManager();
 
             // Check to see if we have retained the worker fragment.
-            mWorkFragment = (RetainedFragment)fm.findFragmentByTag("work");
+            mWorkFragment = (RetainedFragment) fm.findFragmentByTag("work");
 
             // If not retained (or first time running), we need to create it.
-            if (mWorkFragment == null) {
+            if (mWorkFragment == null)
+            {
                 mWorkFragment = new RetainedFragment();
                 // Tell it who it is working with.
                 mWorkFragment.setTargetFragment(this, 0);
@@ -77,7 +84,8 @@ public class FragmentRetainInstance extends Activity
      * activity instances.  It represents some ongoing work, here a thread
      * we have that sits around incrementing a progress indicator.
      */
-    public static class RetainedFragment extends Fragment {
+    public static class RetainedFragment extends Fragment
+    {
         ProgressBar mProgressBar;
         int mPosition;
         boolean mReady = false;
@@ -87,26 +95,35 @@ public class FragmentRetainInstance extends Activity
          * This is the thread that will do our work.  It sits in a loop running
          * the progress up until it has reached the top, then stops and waits.
          */
-        final Thread mThread = new Thread() {
+        final Thread mThread = new Thread()
+        {
             @Override
-            public void run() {
+            public void run()
+            {
                 // We'll figure the real value out later.
                 int max = 10000;
 
                 // This thread runs almost forever.
-                while (true) {
+                while (true)
+                {
 
                     // Update our shared state with the UI.
-                    synchronized (this) {
+                    synchronized (this)
+                    {
                         // Our thread is stopped if the UI is not ready
                         // or it has completed its work.
-                        while (!mReady || mPosition >= max) {
-                            if (mQuiting) {
+                        while (!mReady || mPosition >= max)
+                        {
+                            if (mQuiting)
+                            {
                                 return;
                             }
-                            try {
+                            try
+                            {
                                 wait();
-                            } catch (InterruptedException e) {
+                            }
+                            catch (InterruptedException e)
+                            {
                             }
                         }
 
@@ -120,10 +137,14 @@ public class FragmentRetainInstance extends Activity
 
                     // Normally we would be doing some work, but put a kludge
                     // here to pretend like we are.
-                    synchronized (this) {
-                        try {
+                    synchronized (this)
+                    {
+                        try
+                        {
                             wait(50);
-                        } catch (InterruptedException e) {
+                        }
+                        catch (InterruptedException e)
+                        {
                         }
                     }
                 }
@@ -135,7 +156,8 @@ public class FragmentRetainInstance extends Activity
          * start our thread.
          */
         @Override
-        public void onCreate(Bundle savedInstanceState) {
+        public void onCreate(Bundle savedInstanceState)
+        {
             super.onCreate(savedInstanceState);
 
             // Tell the framework to try to keep this fragment around
@@ -153,15 +175,17 @@ public class FragmentRetainInstance extends Activity
          * to a new activity.
          */
         @Override
-        public void onActivityCreated(Bundle savedInstanceState) {
+        public void onActivityCreated(Bundle savedInstanceState)
+        {
             super.onActivityCreated(savedInstanceState);
 
             // Retrieve the progress bar from the target's view hierarchy.
-            mProgressBar = (ProgressBar)getTargetFragment().getView().findViewById(
+            mProgressBar = (ProgressBar) getTargetFragment().getView().findViewById(
                     R.id.progress_horizontal);
 
             // We are ready for our thread to go.
-            synchronized (mThread) {
+            synchronized (mThread)
+            {
                 mReady = true;
                 mThread.notify();
             }
@@ -172,9 +196,11 @@ public class FragmentRetainInstance extends Activity
          * when the fragment is being propagated between activity instances.
          */
         @Override
-        public void onDestroy() {
+        public void onDestroy()
+        {
             // Make the thread go away.
-            synchronized (mThread) {
+            synchronized (mThread)
+            {
                 mReady = false;
                 mQuiting = true;
                 mThread.notify();
@@ -188,11 +214,13 @@ public class FragmentRetainInstance extends Activity
          * current activity instance.
          */
         @Override
-        public void onDetach() {
+        public void onDetach()
+        {
             // This fragment is being detached from its activity.  We need
             // to make sure its thread is not going to touch any activity
             // state after returning from this function.
-            synchronized (mThread) {
+            synchronized (mThread)
+            {
                 mProgressBar = null;
                 mReady = false;
                 mThread.notify();
@@ -204,8 +232,10 @@ public class FragmentRetainInstance extends Activity
         /**
          * API for our UI to restart the progress thread.
          */
-        public void restart() {
-            synchronized (mThread) {
+        public void restart()
+        {
+            synchronized (mThread)
+            {
                 mPosition = 0;
                 mThread.notify();
             }
