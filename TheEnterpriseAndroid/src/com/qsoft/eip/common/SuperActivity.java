@@ -8,10 +8,15 @@ import android.widget.EditText;
 import com.bindroid.BindingMode;
 import com.bindroid.ui.EditTextTextProperty;
 import com.bindroid.ui.UiBinder;
-import com.qsoft.eip.common.IExchangeEvent;
-import com.qsoft.eip.common.IModelContainer;
-import com.qsoft.eip.common.annotation.*;
+import com.googlecode.androidannotations.annotations.AfterViews;
+import com.googlecode.androidannotations.annotations.Bean;
+import com.googlecode.androidannotations.annotations.EActivity;
+import com.qsoft.eip.common.annotation.ModelBinding;
+import com.qsoft.eip.common.annotation.SaveActivityState;
+import com.qsoft.eip.common.annotation.TransferScope;
+import com.qsoft.eip.common.annotation.ViewMapping;
 import com.qsoft.eip.common.utils.*;
+import com.qsoft.eip.research.annotationsandroid.CommandExecutor;
 
 import java.io.Serializable;
 import java.lang.reflect.Field;
@@ -22,20 +27,26 @@ import java.util.Map;
  * User: Le
  * Date: 10/11/13
  */
+@EActivity
 public class SuperActivity extends Activity implements IModelContainer
 {
-// ------------------------------ FIELDS ------------------------------
-
+    // ------------------------------ FIELDS ------------------------------
     protected String TAG = this.getClass().getSimpleName();
 
     @SaveActivityState(TransferScope.WITHIN_ACTIVITY)
     protected Serializable model;
+
+    @SaveActivityState(TransferScope.WITHIN_ACTIVITY)
+    protected int requestCode;
 
     private Integer originalRequestCode;
 
     private Map<Integer, IExchangeEvent> exchangeQueue = new HashMap<Integer, IExchangeEvent>();
 
     private Map<Integer, Object> mappedUIComponents = new HashMap<Integer, Object>();
+
+    @Bean
+    protected CommandExecutor commandExecutor;
 
 // --------------------- GETTER / SETTER METHODS ---------------------
 
@@ -58,7 +69,8 @@ public class SuperActivity extends Activity implements IModelContainer
 // ------------------------ CANONICAL METHODS ------------------------
 
     @Override
-    public String toString() {
+    public String toString()
+    {
         return getClass().getSimpleName() + "@" + Integer.toHexString(super.hashCode());
     }
 
@@ -76,7 +88,8 @@ public class SuperActivity extends Activity implements IModelContainer
 
 // -------------------------- OTHER METHODS --------------------------
 
-    public void addExchangeQueue(int requestCode, IExchangeEvent exchangeEvent) {
+    public void addExchangeQueue(int requestCode, IExchangeEvent exchangeEvent)
+    {
         exchangeQueue.put(requestCode, exchangeEvent);
     }
 
@@ -84,7 +97,8 @@ public class SuperActivity extends Activity implements IModelContainer
     protected void onActivityResult(int requestCode, int resultCode, Intent data)
     {
         super.onActivityResult(requestCode, resultCode, data);
-        if (exchangeQueue.containsKey(requestCode)) {
+        if (exchangeQueue.containsKey(requestCode))
+        {
             exchangeQueue.get(requestCode).updateModel(model, data);
             exchangeQueue.remove(requestCode);
         }
@@ -96,6 +110,12 @@ public class SuperActivity extends Activity implements IModelContainer
         super.onCreate(savedInstanceState);
         LogUtils.debugLog(this, "onCreate() called");
         StateUtils.loadState(this, savedInstanceState);
+        bindings();
+    }
+
+    @AfterViews
+    protected void bindings()
+    {
         ViewMapping viewMappingPresent = isViewMappingPresent(this.getClass());
         if (viewMappingPresent != null)
         {
@@ -105,10 +125,12 @@ public class SuperActivity extends Activity implements IModelContainer
         CommandUtils.mapCommands(this);
     }
 
-    private ViewMapping isViewMappingPresent(Class clazz) {
+    private ViewMapping isViewMappingPresent(Class clazz)
+    {
         ViewMapping viewMapping = null;
         Class superClazz = clazz;
-        while (superClazz != Object.class) {
+        while (superClazz != Object.class)
+        {
             if (superClazz.isAnnotationPresent(ViewMapping.class))
             {
                 viewMapping = (ViewMapping) superClazz.getAnnotation(ViewMapping.class);
@@ -119,7 +141,8 @@ public class SuperActivity extends Activity implements IModelContainer
         return viewMapping;
     }
 
-    protected void onModelLoaded() {
+    protected void onModelLoaded()
+    {
         for (Field member : ClassUtils.getAllFields(this.getClass()))
         {
             if (!member.isAccessible())
@@ -131,10 +154,13 @@ public class SuperActivity extends Activity implements IModelContainer
                 if (member.isAnnotationPresent(ModelBinding.class))
                 {
                     Object uiComponent = member.get(this);
-                    if (uiComponent instanceof EditText) {
+                    if (uiComponent instanceof EditText)
+                    {
                         UiBinder.bind(new EditTextTextProperty((EditText) uiComponent), model,
                                 member.getAnnotation(ModelBinding.class).value(), BindingMode.TWO_WAY);
-                    } else if (uiComponent instanceof Button) {
+                    }
+                    else if (uiComponent instanceof Button)
+                    {
                     }
                     // TODO: All common type
                 }
@@ -161,8 +187,9 @@ public class SuperActivity extends Activity implements IModelContainer
         StateUtils.onSaveInstanceState(this, outState);
     }
 
-    public <GUI> GUI getGUIComponent(int id, Class<GUI> type) {
-       return (GUI) mappedUIComponents.get(id);
+    public <GUI> GUI getGUIComponent(int id, Class<GUI> type)
+    {
+        return (GUI) mappedUIComponents.get(id);
     }
 
     @Override

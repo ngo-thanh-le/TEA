@@ -7,10 +7,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import com.qsoft.eip.R;
 import com.qsoft.eip.common.SuperActivity;
-import com.qsoft.eip.tutorials.simple.model.SimpleModel;
 import com.qsoft.eip.common.annotation.GUIMapping;
 import com.qsoft.eip.common.annotation.ViewMapping;
-import com.qsoft.eip.common.utils.ClassUtils;
+import com.qsoft.eip.tutorials.simple.model.SimpleModel;
 
 /**
  * User: Le
@@ -19,6 +18,8 @@ import com.qsoft.eip.common.utils.ClassUtils;
 @ViewMapping(R.layout.activity_second)
 public class SecondActivity extends SuperActivity
 {
+    public final static int REQUEST_CODE = 10001;
+
     @GUIMapping(R.id.textedit_content)
     private EditText contextTextEdit;
 
@@ -30,6 +31,7 @@ public class SecondActivity extends SuperActivity
     {
         super.onCreate(savedInstanceState);
         model = getIntent().getSerializableExtra("model");
+        requestCode = getIntent().getIntExtra("requestCode", 0);
         okButton.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -39,7 +41,7 @@ public class SecondActivity extends SuperActivity
                 simpleModel.setContent(contextTextEdit.getText().toString());
                 Intent intent = new Intent();
                 intent.putExtra("model", simpleModel);
-                setResult(ClassUtils.getViewMappingId(this.getClass()), intent);
+                setResult(requestCode, intent);
                 finish();
             }
         });

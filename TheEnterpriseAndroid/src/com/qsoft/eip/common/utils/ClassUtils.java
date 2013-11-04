@@ -16,15 +16,27 @@ public class ClassUtils
     public static List<Field> getAllFields(Class clazz)
     {
         List<Field> results = new ArrayList<Field>();
-        results.addAll(Arrays.asList(clazz.getFields()));
-        results.addAll(Arrays.asList(clazz.getDeclaredFields()));
+
+        Class superClass = clazz;
+        while (superClass != Object.class)
+        {
+            results.addAll(Arrays.asList(superClass.getFields()));
+            results.addAll(Arrays.asList(superClass.getDeclaredFields()));
+            superClass = superClass.getSuperclass();
+        }
+
         return results;
     }
 
-    public static int getViewMappingId(Class<?> activityClass) {
-        if (activityClass.isAnnotationPresent(ViewMapping.class)) {
+    public static int getViewMappingId(Class<?> activityClass)
+    {
+        if (activityClass.isAnnotationPresent(ViewMapping.class))
+        {
             return activityClass.getAnnotation(ViewMapping.class).value();
         }
-        else return -1;
+        else
+        {
+            return -1;
+        }
     }
 }

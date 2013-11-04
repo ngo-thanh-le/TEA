@@ -125,6 +125,15 @@
                 android:name=".tutorials.section04.ThreadedActivity"
                 android:label="Running on Thread"/>
 
+        <!--Research-->
+        <!--Annotations Android-->
+        <activity android:name=".research.annotationsandroid.StillMyMainActivity_">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+
         <!--<activity-->
         <!--android:name=".tutorials.simple.MainActivity"-->
         <!--android:label="@string/app_name">-->
@@ -133,7 +142,7 @@
         <!--<category android:name="android.intent.category.LAUNCHER"/>-->
         <!--</intent-filter>-->
         <!--</activity>-->
-        <!--<activity android:name=".tutorials.simple.SecondActivity"/>-->
+        <activity android:name=".tutorials.simple.SecondActivity"/>
 
         <!--<activity android:name=".tutorials.section05.DaoActivity">-->
         <!--<intent-filter>-->
