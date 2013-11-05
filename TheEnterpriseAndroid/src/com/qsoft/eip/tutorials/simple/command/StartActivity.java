@@ -28,7 +28,7 @@ public class StartActivity implements IActivityCommand, IExchangeEvent
     }
 
     @Override
-    public void updateModel(Object model, Intent returnData)
+    public void updateModel(Object model, Intent returnData, int resultCode)
     {
         ((SimpleModel) model).setContent(((SimpleModel) returnData.getSerializableExtra("model")).getContent());
     }

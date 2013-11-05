@@ -28,22 +28,20 @@ import java.util.Map;
  * Date: 10/11/13
  */
 @EActivity
-public class SuperActivity extends Activity implements IModelContainer
+public class SuperAnnotationActivity extends Activity implements IModelContainer
 {
     // ------------------------------ FIELDS ------------------------------
-    protected String TAG = this.getClass().getSimpleName();
+
+    public final String TAG = this.getClass().getSimpleName();
 
     @SaveActivityState(TransferScope.WITHIN_ACTIVITY)
     protected Serializable model;
 
     @SaveActivityState(TransferScope.WITHIN_ACTIVITY)
-    protected int requestCode;
-
-    private Integer originalRequestCode;
-
     private Map<Integer, IExchangeEvent> exchangeQueue = new HashMap<Integer, IExchangeEvent>();
 
-    private Map<Integer, Object> mappedUIComponents = new HashMap<Integer, Object>();
+    @SaveActivityState(TransferScope.WITHIN_ACTIVITY)
+    protected int requestCode;
 
     @Bean
     protected CommandExecutor commandExecutor;
@@ -54,16 +52,6 @@ public class SuperActivity extends Activity implements IModelContainer
     public Serializable getModel()
     {
         return model;
-    }
-
-    public int getOriginalRequestCode()
-    {
-        if (originalRequestCode == null)
-        {
-            originalRequestCode = !this.getClass().isAnnotationPresent(ViewMapping.class) ?
-                    ((Double) Math.random()).intValue() : this.getClass().getAnnotation(ViewMapping.class).value();
-        }
-        return originalRequestCode;
     }
 
 // ------------------------ CANONICAL METHODS ------------------------
@@ -108,37 +96,7 @@ public class SuperActivity extends Activity implements IModelContainer
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        LogUtils.debugLog(this, "onCreate() called");
         StateUtils.loadState(this, savedInstanceState);
-        bindings();
-    }
-
-    @AfterViews
-    protected void bindings()
-    {
-        ViewMapping viewMappingPresent = isViewMappingPresent(this.getClass());
-        if (viewMappingPresent != null)
-        {
-            setContentView(viewMappingPresent.value());
-        }
-        mappedUIComponents = GUIUtils.mapUIComponents(this);
-        CommandUtils.mapCommands(this);
-    }
-
-    private ViewMapping isViewMappingPresent(Class clazz)
-    {
-        ViewMapping viewMapping = null;
-        Class superClazz = clazz;
-        while (superClazz != Object.class)
-        {
-            if (superClazz.isAnnotationPresent(ViewMapping.class))
-            {
-                viewMapping = (ViewMapping) superClazz.getAnnotation(ViewMapping.class);
-                break;
-            }
-            superClazz = superClazz.getSuperclass();
-        }
-        return viewMapping;
     }
 
     protected void onModelLoaded()
@@ -185,11 +143,6 @@ public class SuperActivity extends Activity implements IModelContainer
         super.onSaveInstanceState(outState);
         LogUtils.debugLog(this, "onSaveInstanceState() called");
         StateUtils.onSaveInstanceState(this, outState);
-    }
-
-    public <GUI> GUI getGUIComponent(int id, Class<GUI> type)
-    {
-        return (GUI) mappedUIComponents.get(id);
     }
 
     @Override

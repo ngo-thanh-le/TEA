@@ -8,5 +8,5 @@ import android.content.Intent;
  */
 public interface IExchangeEvent
 {
-    void updateModel(Object model, Intent returnData);
+    void updateModel(Object model, Intent returnData, int resultCode);
 }

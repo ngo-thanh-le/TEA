@@ -1,9 +1,10 @@
 package com.qsoft.eip.research.annotationsandroid;
 
 import android.content.Intent;
+import com.qsoft.eip.common.Constants;
 import com.qsoft.eip.common.ICommandExecutable;
 import com.qsoft.eip.common.IExchangeEvent;
-import com.qsoft.eip.common.SuperActivity;
+import com.qsoft.eip.common.SuperAnnotationActivity;
 import com.qsoft.eip.common.utils.LogUtils;
 import com.qsoft.eip.tutorials.simple.model.SimpleModel;
 
@@ -15,37 +16,16 @@ import java.io.Serializable;
  */
 public class GenericStartActivityCommand implements ICommandExecutable, IExchangeEvent
 {
-    private Class activityClass;
-    private SuperActivity activity;
+// ------------------------------ FIELDS ------------------------------
+
+    private Class openingActivityClass;
+    private SuperAnnotationActivity activity;
     private int requestCode;
     private Serializable model;
 
-    @Override
-    public void execute() throws Exception
-    {
-        LogUtils.debugLog(this, "StartActivity execute()");
-        Intent intent = new Intent(activity, activityClass);
-        intent.putExtra("model", model);
-//        int requestCode = ClassUtils.getViewMappingId(activityClass);
-//        requestCode = activity.hashCode();
-        requestCode = UniqueRequestCodeGenerator.getNext();
-        intent.putExtra("requestCode", requestCode);
-        activity.addExchangeQueue(requestCode, this);
-        activity.startActivityForResult(intent, requestCode);
-    }
+// --------------------- GETTER / SETTER METHODS ---------------------
 
-    @Override
-    public void updateModel(Object model, Intent returnData)
-    {
-        ((SimpleModel) model).setContent(((SimpleModel) returnData.getSerializableExtra("model")).getContent());
-    }
-
-    public void setActivityClass(Class activityClass)
-    {
-        this.activityClass = activityClass;
-    }
-
-    public void setActivity(SuperActivity activity)
+    public void setActivity(SuperAnnotationActivity activity)
     {
         this.activity = activity;
     }
@@ -55,8 +35,39 @@ public class GenericStartActivityCommand implements ICommandExecutable, IExchang
         this.model = model;
     }
 
+    public void setOpeningActivityClass(Class openingActivityClass)
+    {
+        this.openingActivityClass = openingActivityClass;
+    }
+
     public void setRequestCode(int requestCode)
     {
         this.requestCode = requestCode;
+    }
+
+// ------------------------ INTERFACE METHODS ------------------------
+
+
+// --------------------- Interface ICommandExecutable ---------------------
+
+    @Override
+    public void execute() throws Exception
+    {
+        LogUtils.debugLog(this, "GenericStartActivityCommand execute()");
+        Intent intent = new Intent(activity, openingActivityClass);
+        intent.putExtra(Constants.SOURCE_MODEL, model);
+        requestCode = UniqueRequestCodeGenerator.getNext();
+        intent.putExtra(Constants.REQUEST_CODE, requestCode);
+        activity.addExchangeQueue(requestCode, this);
+        activity.startActivityForResult(intent, requestCode);
+    }
+
+// --------------------- Interface IExchangeEvent ---------------------
+
+
+    @Override
+    public void updateModel(Object model, Intent returnData, int resultCode)
+    {
+        ((SimpleModel) model).setContent(((SimpleModel) returnData.getSerializableExtra(Constants.RETURN_MODEL)).getContent());
     }
 }

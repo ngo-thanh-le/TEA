@@ -30,7 +30,7 @@ public class CommandExecutor
             {
                 Toast toast = Toast.makeText(context, e.getMessage(), Toast.LENGTH_LONG);
                 toast.show();
-                LogUtils.debugLog(context, e.getMessage());
+                LogUtils.debugLog(context, "Execute command error. Cause: " + e.getMessage());
             }
         }
     }

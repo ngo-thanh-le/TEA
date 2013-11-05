@@ -8,6 +8,7 @@ import com.googlecode.androidannotations.annotations.EActivity;
 import com.googlecode.androidannotations.annotations.ViewById;
 import com.qsoft.eip.R;
 import com.qsoft.eip.common.SuperActivity;
+import com.qsoft.eip.common.SuperAnnotationActivity;
 import com.qsoft.eip.common.annotation.ModelBinding;
 import com.qsoft.eip.tutorials.simple.model.SimpleModel;
 
@@ -16,7 +17,7 @@ import com.qsoft.eip.tutorials.simple.model.SimpleModel;
  * Date: 11/4/13
  */
 @EActivity(R.layout.activity_still_my_main)
-public class StillMyMainActivity extends SuperActivity
+public class StillMyMainActivity extends SuperAnnotationActivity
 {
     @ViewById(R.id.button_start_activity)
     Button buttonStartActivity;

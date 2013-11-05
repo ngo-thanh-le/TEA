@@ -7,8 +7,6 @@ import com.qsoft.eip.common.IModelContainer;
 import com.qsoft.eip.common.SuperActivity;
 import com.qsoft.eip.common.utils.ClassUtils;
 import com.qsoft.eip.common.utils.LogUtils;
-import com.qsoft.eip.tutorials.simple.SecondActivity;
-import com.qsoft.eip.tutorials.simple.model.SimpleModel;
 
 /**
  * User: Le
@@ -29,7 +27,7 @@ public class GenericStartActivityCommand implements IActivityCommand, IExchangeE
     }
 
     @Override
-    public void updateModel(Object model, Intent returnData)
+    public void updateModel(Object model, Intent returnData, int resultCode)
     {
     }
 }

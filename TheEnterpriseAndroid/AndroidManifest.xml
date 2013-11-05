@@ -143,6 +143,7 @@
         <!--</intent-filter>-->
         <!--</activity>-->
         <activity android:name=".tutorials.simple.SecondActivity"/>
+        <activity android:name=".research.annotationsandroid.SecondActivity_"/>
 
         <!--<activity android:name=".tutorials.section05.DaoActivity">-->
         <!--<intent-filter>-->
