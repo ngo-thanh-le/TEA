@@ -1,6 +1,6 @@
 package com.qsoft.eip.common;
 
-import com.qsoft.eip.tutorials.section03.RetainedFragment;
+//import com.qsoft.eip.tutorials.section03.RetainedFragment;
 
 import java.sql.SQLException;
 
@@ -10,30 +10,30 @@ import java.sql.SQLException;
  */
 public abstract class AbstractRunnableFragmentCommand implements IFragmentCommand, Runnable
 {
-    private static int count = 0;
-
-    protected SuperFragment fragmentRef;
-
-    protected RetainedFragment retainedFragmentRef;
-
-    protected IModelContainer modelRef;
-
-    protected String[] parametersRef;
-
-    @Override
-    public void execute(final SuperFragment fragment, IModelContainer modelable, String... parameters) throws SQLException
-    {
-        final RetainedFragment newRetainedFragment = new RetainedFragment();
-        AbstractRunnableFragmentCommand.this.fragmentRef = fragment;
-        AbstractRunnableFragmentCommand.this.retainedFragmentRef = newRetainedFragment;
-        AbstractRunnableFragmentCommand.this.modelRef = modelable;
-        AbstractRunnableFragmentCommand.this.parametersRef = parameters;
-        newRetainedFragment.setTargetFragment(fragment, ((Double) Math.random()).intValue());
-        newRetainedFragment.setProgressBarId(getProgressBarId());
-        newRetainedFragment.setRunnable(this);
-        fragment.getFragmentManager().beginTransaction().add(newRetainedFragment, "run_" + count++).commit();
-        newRetainedFragment.start();
-    }
-
-    public abstract int getProgressBarId();
+//    private static int count = 0;
+//
+//    protected SuperFragment fragmentRef;
+//
+//    protected RetainedFragment retainedFragmentRef;
+//
+//    protected IModelContainer modelRef;
+//
+//    protected String[] parametersRef;
+//
+//    @Override
+//    public void execute(final SuperFragment fragment, IModelContainer modelable, String... parameters) throws SQLException
+//    {
+//        final RetainedFragment newRetainedFragment = new RetainedFragment();
+//        AbstractRunnableFragmentCommand.this.fragmentRef = fragment;
+//        AbstractRunnableFragmentCommand.this.retainedFragmentRef = newRetainedFragment;
+//        AbstractRunnableFragmentCommand.this.modelRef = modelable;
+//        AbstractRunnableFragmentCommand.this.parametersRef = parameters;
+//        newRetainedFragment.setTargetFragment(fragment, ((Double) Math.random()).intValue());
+//        newRetainedFragment.setProgressBarId(getProgressBarId());
+//        newRetainedFragment.setRunnable(this);
+//        fragment.getFragmentManager().beginTransaction().add(newRetainedFragment, "run_" + count++).commit();
+//        newRetainedFragment.start();
+//    }
+//
+//    public abstract int getProgressBarId();
 }

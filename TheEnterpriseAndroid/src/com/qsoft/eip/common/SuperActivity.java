@@ -16,7 +16,7 @@ import com.qsoft.eip.common.annotation.SaveActivityState;
 import com.qsoft.eip.common.annotation.TransferScope;
 import com.qsoft.eip.common.annotation.ViewMapping;
 import com.qsoft.eip.common.utils.*;
-import com.qsoft.eip.research.annotationsandroid.CommandExecutor;
+//import com.qsoft.eip.research.annotationsandroid.CommandExecutor;
 
 import java.io.Serializable;
 import java.lang.reflect.Field;
@@ -45,8 +45,8 @@ public class SuperActivity extends Activity implements IModelContainer
 
     private Map<Integer, Object> mappedUIComponents = new HashMap<Integer, Object>();
 
-    @Bean
-    protected CommandExecutor commandExecutor;
+//    @Bean
+//    protected CommandExecutor commandExecutor;
 
 // --------------------- GETTER / SETTER METHODS ---------------------
 

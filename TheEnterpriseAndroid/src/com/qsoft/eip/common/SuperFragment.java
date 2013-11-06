@@ -11,7 +11,7 @@ import com.bindroid.BindingMode;
 import com.bindroid.ui.EditTextTextProperty;
 import com.bindroid.ui.UiBinder;
 import com.j256.ormlite.android.apptools.OpenHelperManager;
-import com.qsoft.eip.tutorials.section03.RetainedFragment;
+//import com.qsoft.eip.tutorials.section03.RetainedFragment;
 import com.qsoft.eip.common.annotation.ModelBinding;
 import com.qsoft.eip.common.annotation.SaveActivityState;
 import com.qsoft.eip.common.annotation.TransferScope;
@@ -94,11 +94,11 @@ public class SuperFragment extends Fragment implements IModelContainer
         if (retainedFragmentStringTags == null) {
             retainedFragmentStringTags = new ArrayList<String>();
         }
-        for (String retainedFragmentStringTag : retainedFragmentStringTags) {
-            RetainedFragment workFragment = (RetainedFragment) getFragmentManager().findFragmentByTag(retainedFragmentStringTag);
-            if (workFragment != null)
-                getFragmentManager().beginTransaction().add(workFragment, retainedFragmentStringTag).commit();
-        }
+//        for (String retainedFragmentStringTag : retainedFragmentStringTags) {
+//            RetainedFragment workFragment = (RetainedFragment) getFragmentManager().findFragmentByTag(retainedFragmentStringTag);
+//            if (workFragment != null)
+//                getFragmentManager().beginTransaction().add(workFragment, retainedFragmentStringTag).commit();
+//        }
     }
 
     @Override
